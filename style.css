@@ -1,0 +1,91 @@
+
+/* General Styles */
+body {
+    font-family: 'Sofia', sans-serif;/* Set default font family */
+    background-color: #ffd6e6; /* Light pink */
+    margin: 0;/* Remove default margin */
+    padding: 0;/* Remove default padding */
+}
+
+.container {
+    display: flex;/* Use flexbox for layout */
+    flex-direction: column;/* Arrange elements in a column */
+    align-items: center;/* Center align items horizontally */
+    justify-content: center;/* Center align items vertically */
+    height: 100vh;/* Set container height to full viewport height */
+}
+
+.title {
+    text-align: center;
+    color: #ff6699; /* Pink */
+    font-size: 36px;
+    margin-bottom: 30px;
+    animation: title-animation 2s infinite alternate;
+}
+
+@keyframes title-animation {
+    0% { transform: scale(1); }/* Initial state of animation */
+    100% { transform: scale(1.05); }/* Final state of animation */
+}
+
+.animals {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.animal {
+    margin: 20px;
+    width: 200px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    perspective: 1000px;/* Set perspective for 3D effect i */
+}
+
+.animal .front,
+.animal .back {
+    position: absolute; /* Position cards absolutely for flipping effect */
+    top: 0; /* Align cards to the top */
+    left: 0; /* Align cards to the left */
+    right: 0; /* Align cards to the right */
+    bottom: 0; /* Align cards to the bottom */
+    backface-visibility: hidden; /* Hide the backface of the cards */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange elements in a column */
+    justify-content: center; /* Center align items vertically */
+    align-items: center; /* Center align items horizontally */
+    padding: 20px; /* Add padding to the cards */
+    border-radius: 20px; /* Add border radius to the cards */
+    transition: transform 0.5s; /* Apply transition for flipping effect */
+    box-shadow: 0 10px 20px rgba(255, 102, 153, 0.5); /* Add shadow to the cards */
+}
+
+.animal .front {
+    background-color: #ffffff; /* Set background color of front side to white */
+    border-radius: 20px; /* Add border radius to the front side */
+    transform: rotateY(0); /* Set initial rotation of front side */
+}
+
+.animal .back {
+    background-color: #ffffff; /* Set background color of back side to white */
+    border-radius: 20px; /* Add border radius to the back side */
+    transform: rotateY(180deg); /* Set initial rotation of back side */
+}
+
+.animal:hover .front {
+    transform: rotateY(-180deg); /* Apply rotation on hover for flipping effect */
+}
+
+.animal:hover .back {
+    transform: rotateY(0); /* Apply rotation on hover for flipping effect */
+}
+
+.animal-img {
+    width: 150px; /* Set width of animal images */
+    height: 150px; /* Set height of animal images */
+    border-radius: 50%; /* Apply border radius for circular images */
+}
+
+.animal-name {
+    margin-top: 0; /* Remove top margin for animal names */
+    margin-bottom: 10px; /* Add bottom margin for spacing */
+}
